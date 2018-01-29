@@ -3,5 +3,7 @@ Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
 Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 15d7f5748c9d402f9dca639e717be3af --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot lab2b_tb_behav xil_defaultlib.lab2b_tb -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-ERROR: [VRFC 10-2335] case statement does not cover all choices. 'others' clause is needed [C:/Users/Richard/Documents/UCI/Freshman/2018 Winter/EECS 31L/Labs/Lab 2 - Vending Machine/Lab 2 - Vending Machine.srcs/sources_1/imports/New folder/lab2b.vhd:51]
-ERROR: [XSIM 43-3321] Static elaboration of top level VHDL design unit lab2b_tb in library work failed.
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+ERROR: [XSIM 43-3249] File C:/Users/Richard/Documents/UCI/Freshman/2018 Winter/EECS 31L/Lab-2-Vending-Machine/Lab 2 - Vending Machine.srcs/sources_1/new/lab2_bv2.vhd, line 31. Unresolved signal "currstate" is multiply driven.
