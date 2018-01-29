@@ -91,22 +91,22 @@ BEGIN
         -- ignoring any setup/hold time issues for behavior --
 		-- TEST CASE 0 BEGIN (provided) --
 		
-		-- insert $10 ($10 total)
+		-- insert Ten (Ten total)
 		Input <= "010";
 		Wait for 20 NS ;
 		
-	   Input <= "000";
+	    Input <= "000";
 		Wait for 20 NS ;
 		
-		-- insert $5 ($15 total)
-	   Input <= "001";
+		-- insert Five (Twenty total)
+	    Input <= "001";
 		Wait for 20 NS ;
 		
-	   Input <= "000";
+	    Input <= "000";
 		Wait for 20 NS ;
 		
-		-- insert $5 ($20 total, expecting P=1, R=0)
-	   Input <= "001";
+		-- insert Five ($20 total, expecting P=1, R=0)
+	    Input <= "001";
 		Wait for 10 NS ;
 		ASSERT Permit = '1' REPORT "p = 1 fail with test case 0" SEVERITY WARNING;
 		ASSERT ReturnChange = '0' REPORT "r = 0 fail with test case 0" SEVERITY WARNING;
