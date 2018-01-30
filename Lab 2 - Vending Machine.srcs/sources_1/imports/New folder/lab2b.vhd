@@ -27,7 +27,7 @@ architecture Behavioral of Lab2b_FSM is
 -- Use CASE statements and IF/ELSE/ELSIF statements to describe your processes.
 -- add your code here
     type StateType is
-        (Start, FiveRCV, TenRCV, FifteenRCV, TwentyRCV, FiveTotal, TenTotal, FifteenTotal, TwentyTotal, Over20, Cancel);
+        (Start, FiveRCV, TenRCV, TwentyRCV, FiveTotal, TenTotal, FifteenTotal, TwentyTotal, Over20, Cancel);
     signal CurrState, NextState: StateType;
     
     begin
@@ -73,9 +73,9 @@ architecture Behavioral of Lab2b_FSM is
                     if(Input = "000") then
                         NextState <= FiveTotal;
                     elsif(Input = "001") then
-                        NextState <= FiveRCV;
+                        NextState <= TenTotal;
                     elsif(Input = "010") then
-                        NextState <= TenRCV;
+                        NextState <= FifteenTotal;
                     elsif(Input = "100") then
                         NextState <= Over20;
                     elsif(Input = "111") then
@@ -95,22 +95,14 @@ architecture Behavioral of Lab2b_FSM is
                     if(Input = "000") then
                         NextState <= TenTotal;
                     elsif(Input = "001") then
-                        NextState <= FifteenRCV;
+                        NextState <= FifteenTotal;
                     elsif(Input = "010") then
                         NextState <= TwentyRCV;
                     elsif(Input = "100") then
                         NextState <= Over20;
                     elsif(Input = "111") then
                         NextState <= Cancel;
-                    end if; 
-                when FifteenRCV =>
-                        Permit <= '0';
-                        ReturnChange <= '0';
-                        if(Input <= "111") then
-                            NextState <= Cancel;
-                        else
-                            NextState <= FifteenTotal;
-                        end if;                   
+                    end if;   
                 when FifteenTotal =>
                     Permit <= '0';
                     ReturnChange <= '0';
