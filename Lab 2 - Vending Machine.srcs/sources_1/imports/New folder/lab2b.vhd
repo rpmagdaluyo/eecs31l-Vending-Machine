@@ -2,9 +2,9 @@
 -- EECS31L/CSE31L Assignment2
 -- FSM Behavioral Model
 ----------------------------------------------------------------------
--- Student First Name : Your First Name
--- Student Last Name : Your Last Name
--- Student ID : Your Student ID
+-- Student First Name : Richard
+-- Student Last Name : Magdaluyo
+-- Student ID : 45993793
 ----------------------------------------------------------------------
 
 LIBRARY ieee;
