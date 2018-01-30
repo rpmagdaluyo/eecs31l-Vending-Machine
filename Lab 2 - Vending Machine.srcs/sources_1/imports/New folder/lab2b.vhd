@@ -27,7 +27,7 @@ architecture Behavioral of Lab2b_FSM is
 -- Use CASE statements and IF/ELSE/ELSIF statements to describe your processes.
 -- add your code here
     type StateType is
-        (Start, FiveRCV, TenRCV, TwentyRCV, FiveTotal, TenTotal, FifteenTotal, TwentyTotal, Over20, Cancel);
+        (Start, FiveRCV, TenRCV, FifteenRCV, TwentyRCV, OverTwentyRCV, FiveTotal, TenTotal, FifteenTotal, TwentyTotal, OverTwentyTotal, Cancel);
     signal CurrState, NextState: StateType;
     
     begin
@@ -60,8 +60,6 @@ architecture Behavioral of Lab2b_FSM is
                         NextState <= Cancel;
                     end if;
                 when FiveRCV =>
-                    Permit <= '0';
-                    ReturnChange <= '0';
                     if(Input <= "111") then
                         NextState <= Cancel;
                     else 
@@ -71,19 +69,17 @@ architecture Behavioral of Lab2b_FSM is
                     Permit <= '0';
                     ReturnChange <= '0';
                     if(Input = "000") then
-                        NextState <= FiveTotal;
+                        NextState <= FiveRCV;
                     elsif(Input = "001") then
-                        NextState <= TenTotal;
+                        NextState <= TenRCV;
                     elsif(Input = "010") then
-                        NextState <= FifteenTotal;
+                        NextState <= FifteenRCV;
                     elsif(Input = "100") then
-                        NextState <= Over20;
+                        NextState <= OverTwentyRCV;
                     elsif(Input = "111") then
                         NextState <= Cancel;
                     end if;
                 when TenRCV =>
-                    Permit <= '0';
-                    ReturnChange <= '0';
                     if(Input <= "111") then
                         NextState <= Cancel;
                     else
@@ -93,16 +89,22 @@ architecture Behavioral of Lab2b_FSM is
                     Permit <= '0';
                     ReturnChange <= '0';
                     if(Input = "000") then
-                        NextState <= TenTotal;
+                        NextState <= TenRCV;
                     elsif(Input = "001") then
-                        NextState <= FifteenTotal;
+                        NextState <= FifteenRCV;
                     elsif(Input = "010") then
                         NextState <= TwentyRCV;
                     elsif(Input = "100") then
-                        NextState <= Over20;
+                        NextState <= OverTwentyRCV;
                     elsif(Input = "111") then
                         NextState <= Cancel;
-                    end if;   
+                    end if;
+                when FifteenRCV =>
+                    if(Input <= "111") then
+                        NextState <= Cancel;
+                    else
+                        NextState <= FifteenTotal;
+                    end if;
                 when FifteenTotal =>
                     Permit <= '0';
                     ReturnChange <= '0';
@@ -111,9 +113,9 @@ architecture Behavioral of Lab2b_FSM is
                     elsif(Input = "001") then
                         NextState <= TwentyRCV;
                     elsif(Input = "010") then
-                        NextState <= Over20;
+                        NextState <= OverTwentyRCV;
                     elsif(Input = "100") then
-                        NextState <= Over20;
+                        NextState <= OverTwentyRCV;
                     elsif(Input = "111") then
                         NextState <= Cancel;
                     end if;
@@ -122,8 +124,10 @@ architecture Behavioral of Lab2b_FSM is
                 when TwentyTotal =>
                     Permit <= '1';
                     ReturnChange <= '0';
-                    NextState <= Start;         
-                when Over20 =>
+                    NextState <= Start;
+                when OverTwentyRCV =>
+                    NextState <= OverTwentyTotal;                             
+                when OverTwentyTotal =>
                     Permit <= '1';
                     ReturnChange <= '1';
                     NextState <= Start;
