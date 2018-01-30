@@ -113,7 +113,50 @@ BEGIN
 		Wait for 10 NS ;
 		
         -- more test cases here
+        
+		-- insert Twenty 
+		Input <= "100";
+		wait for 10ns;
+		assert Permit = '1' report "p = 1 fail with test case 1" severity warning;
+		assert ReturnChange = '0' report "r = 0 fail with test case 1" severity warning;
+		wait for 10ns;
 		
+		-- insert NoBill after getting the permit;
+		Input <= "000";
+		wait for 10ns;
+		assert Permit = '1' report "p = 1 fail with test case 2" severity warning;
+        assert ReturnChange = '0' report "r = 0 fail with test case 2" severity warning;
+        wait for 10ns;
+		
+		-- insert Five;
+		Input <= "001";
+		wait for 10ns;
+		assert Permit = '0' report "p = 0 fail with test case 3" severity warning;
+        assert ReturnChange = '0' report "r = 0 fail with test case 3" severity warning;
+        wait for 10ns;
+		
+		-- insert Ten;
+		Input <= "010";
+		wait for 10ns;
+		assert Permit = '0' report "p = 0 fail with test case 4" severity warning;
+        assert ReturnChange = '0' report "r = 0 fail with test case 4" severity warning;
+        wait for 10ns;
+		
+		-- insert Twenty;
+		Input <= "100";
+		wait for 10ns;
+		assert Permit = '1' report "p = 1 fail with test case 5" severity warning;
+        assert ReturnChange = '1' report "r = 1 fail with test case 5" severity warning;
+        wait for 10ns;
+
+                
+        -- insert NoBill after getting the permit;
+        Input <= "000";
+        wait for 10ns;
+        assert Permit = '0' report "p = 0 fail with test case 6" severity warning;
+        assert ReturnChange = '0' report "r = 0 fail with test case 6" severity warning;
+        wait for 10ns;
+                
       wait;
    end process;
 

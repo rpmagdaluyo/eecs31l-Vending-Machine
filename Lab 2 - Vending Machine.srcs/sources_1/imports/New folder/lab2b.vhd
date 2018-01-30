@@ -43,7 +43,7 @@ architecture Behavioral of Lab2b_FSM is
         -- on current state and input
         CombLogic: process(CurrState, Input)
         begin
-            CurrState <= Start;
+--            CurrState <= Start;
             case CurrState is
                 when Start =>
                     Permit <= '0';
@@ -59,18 +59,6 @@ architecture Behavioral of Lab2b_FSM is
                     elsif(Input <= "111") then
                         NextState <= Cancel;
                     end if;
---                    case Input is
---                        when "000" =>
---                            NextState <= Start;
---                        when "001" =>
---                            NextState <= FiveTotal;
---                        when "010" =>
---                            NextState <= TenTotal;
---                        when "100" =>
---                            NextState <= TwentyTotal;
---                        when "111" =>
---                            NextState <= Change;
---                     end case;
                 when FiveTotal =>
                     Permit <= '0';
                     ReturnChange <= '0';
@@ -85,16 +73,6 @@ architecture Behavioral of Lab2b_FSM is
                     elsif(Input = "111") then
                         NextState <= Cancel;
                     end if;
---                    case Input is
---                        when "000" =>
---                            NextState <= FiveTotal;
---                        when "001" =>
---                            NextState <= TenTotal;
---                        when "010" =>
---                            NextState <= TwentyTotal;
---                        when "100" =>
---                            NextState <= Over20;
---                    end case;
                 when TenTotal =>
                     Permit <= '0';
                     ReturnChange <= '0';
@@ -108,17 +86,7 @@ architecture Behavioral of Lab2b_FSM is
                         NextState <= Over20;
                     elsif(Input = "111") then
                         NextState <= Cancel;
-                    end if;
---                    case Input is
---                        when "000" =>
---                            NextState <= TenTotal;
---                        when "001" =>
---                            NextState <= TwentyTotal;
---                        when "010" =>
---                            NextState <= TwentyTotal;
---                        when "100" =>
---                            NextState <= Over20;
---                    end case;                    
+                    end if;                    
                 when FifteenTotal =>
                     Permit <= '0';
                     ReturnChange <= '0';
@@ -132,17 +100,7 @@ architecture Behavioral of Lab2b_FSM is
                         NextState <= Over20;
                     elsif(Input = "111") then
                         NextState <= Cancel;
-                    end if;
---                    case Input is
---                        when "000" =>
---                            NextState <= FifteenTotal;
---                        when "001" =>
---                            NextState <= TwentyTotal;
---                        when "010" =>
---                            NextState <= Over20;
---                        when "100" =>
---                            NextState <= Over20;
---                    end case;                
+                    end if;                
                 when TwentyTotal =>
                     Permit <= '1';
                     ReturnChange <= '0';
