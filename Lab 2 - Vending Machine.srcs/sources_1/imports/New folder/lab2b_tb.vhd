@@ -91,21 +91,21 @@ BEGIN
         -- ignoring any setup/hold time issues for behavior --
 		-- TEST CASE 0 BEGIN (provided) --
 		
-		-- insert Ten (Ten total)
+		-- insert Ten (Ten RCVl)
 		Input <= "010";
 		Wait for 20 NS ;
 		
 	    Input <= "000";
 		Wait for 20 NS ;
 		
-		-- insert Five (Twenty total)
+		-- insert Five (Twenty RCVl)
 	    Input <= "001";
 		Wait for 20 NS ;
 		
 	    Input <= "000";
 		Wait for 20 NS ;
 		
-		-- insert Five ($20 total, expecting P=1, R=0)
+		-- insert Five ($20 RCVl, expecting P=1, R=0)
 	    Input <= "001";
 		Wait for 10 NS ;
 		ASSERT Permit = '1' REPORT "p = 1 fail with test case 0" SEVERITY WARNING;

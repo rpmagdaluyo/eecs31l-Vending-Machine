@@ -27,7 +27,7 @@ architecture Behavioral of Lab2b_FSM is
 -- Use CASE statements and IF/ELSE/ELSIF statements to describe your processes.
 -- add your code here
     type StateType is
-        (Start, FiveTotal, TenTotal, FifteenTotal, TwentyTotal, Over20, Cancel);
+        (Start, FiveRCV, TenRCV, FifteenRCV, TwentyRCV, FiveTotal, TenTotal, FifteenTotal, TwentyTotal, Over20, Cancel);
     signal CurrState, NextState: StateType;
     
     begin
@@ -51,13 +51,21 @@ architecture Behavioral of Lab2b_FSM is
                     if(Input = "000") then
                         NextState <= Start;
                     elsif(Input = "001") then
-                        NextState <= FiveTotal;
+                        NextState <= FiveRCV;
                     elsif(Input = "010") then
-                        NextState <= TenTotal;
+                        NextState <= TenRCV;
                     elsif(Input <= "100") then
-                        NextState <= TwentyTotal;
+                        NextState <= TwentyRCV;
                     elsif(Input <= "111") then
                         NextState <= Cancel;
+                    end if;
+                when FiveRCV =>
+                    Permit <= '0';
+                    ReturnChange <= '0';
+                    if(Input <= "111") then
+                        NextState <= Cancel;
+                    else 
+                        NextState <= FiveTotal;
                     end if;
                 when FiveTotal =>
                     Permit <= '0';
@@ -65,13 +73,21 @@ architecture Behavioral of Lab2b_FSM is
                     if(Input = "000") then
                         NextState <= FiveTotal;
                     elsif(Input = "001") then
-                        NextState <= TenTotal;
+                        NextState <= FiveRCV;
                     elsif(Input = "010") then
-                        NextState <= TwentyTotal;
+                        NextState <= TenRCV;
                     elsif(Input = "100") then
                         NextState <= Over20;
                     elsif(Input = "111") then
                         NextState <= Cancel;
+                    end if;
+                when TenRCV =>
+                    Permit <= '0';
+                    ReturnChange <= '0';
+                    if(Input <= "111") then
+                        NextState <= Cancel;
+                    else
+                        NextState <= TenTotal;
                     end if;
                 when TenTotal =>
                     Permit <= '0';
@@ -79,28 +95,38 @@ architecture Behavioral of Lab2b_FSM is
                     if(Input = "000") then
                         NextState <= TenTotal;
                     elsif(Input = "001") then
-                        NextState <= FifteenTotal;
+                        NextState <= FifteenRCV;
                     elsif(Input = "010") then
-                        NextState <= TwentyTotal;
+                        NextState <= TwentyRCV;
                     elsif(Input = "100") then
                         NextState <= Over20;
                     elsif(Input = "111") then
                         NextState <= Cancel;
-                    end if;                    
+                    end if; 
+                when FifteenRCV =>
+                        Permit <= '0';
+                        ReturnChange <= '0';
+                        if(Input <= "111") then
+                            NextState <= Cancel;
+                        else
+                            NextState <= FifteenTotal;
+                        end if;                   
                 when FifteenTotal =>
                     Permit <= '0';
                     ReturnChange <= '0';
                     if(Input = "000") then
                         NextState <= FifteenTotal;
                     elsif(Input = "001") then
-                        NextState <= TwentyTotal;
+                        NextState <= TwentyRCV;
                     elsif(Input = "010") then
                         NextState <= Over20;
                     elsif(Input = "100") then
                         NextState <= Over20;
                     elsif(Input = "111") then
                         NextState <= Cancel;
-                    end if;                
+                    end if;
+                when TwentyRCV =>
+                    NextState <= TwentyTotal;                                 
                 when TwentyTotal =>
                     Permit <= '1';
                     ReturnChange <= '0';
