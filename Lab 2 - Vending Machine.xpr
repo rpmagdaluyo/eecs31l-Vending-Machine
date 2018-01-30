@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="35" Path="C:/Users/Richard/Documents/UCI/Freshman/2018 Winter/EECS 31L/Lab-2-Vending-Machine/Lab 2 - Vending Machine.xpr">
+<Project Version="7" Minor="35" Path="C:/Users/Richard/Documents/UCI/Freshman/2018 Winter/EECS 31L/Labs/Lab 2 - Vending Machine/Lab 2 - Vending Machine.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="15d7f5748c9d402f9dca639e717be3af"/>
@@ -33,7 +33,7 @@
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
-    <Option Name="WTXSimLaunchSim" Val="17"/>
+    <Option Name="WTXSimLaunchSim" Val="18"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>

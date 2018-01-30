@@ -1,0 +1,98 @@
+/*
+
+Xilinx Vivado v2017.4 (64-bit) [Major: 2017, Minor: 4]
+SW Build: 2086221 on Fri Dec 15 20:55:39 MST 2017
+IP Build: 2085800 on Fri Dec 15 22:25:07 MST 2017
+
+Process ID: 19628
+License: Customer
+
+Current time: 	Tue Jan 30 15:06:35 PST 2018
+Time zone: 	Pacific Standard Time (America/Los_Angeles)
+
+OS: Windows 8.1
+OS Version: 6.3
+OS Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1600x900
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 203 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	C:/Xilinx/Vivado/2017.4/tps/win64/jre
+JVM executable location: 	C:/Xilinx/Vivado/2017.4/tps/win64/jre/bin/java.exe
+
+User name: 	Richard
+User home directory: C:/Users/Richard
+User working directory: C:/Users/Richard/Documents/UCI/Freshman/2018 Winter/EECS 31L/Labs/Lab 2 - Vending Machine
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: C:/Xilinx/Vivado
+HDI_APPROOT: C:/Xilinx/Vivado/2017.4
+RDI_DATADIR: C:/Xilinx/Vivado/2017.4/data
+RDI_BINDIR: C:/Xilinx/Vivado/2017.4/bin
+
+Vivado preferences file location: C:/Users/Richard/AppData/Roaming/Xilinx/Vivado/2017.4/vivado.xml
+Vivado preferences directory: C:/Users/Richard/AppData/Roaming/Xilinx/Vivado/2017.4/
+Vivado layouts directory: C:/Users/Richard/AppData/Roaming/Xilinx/Vivado/2017.4/layouts
+PlanAhead jar file location: 	C:/Xilinx/Vivado/2017.4/lib/classes/planAhead.jar
+Vivado log file location: 	C:/Users/Richard/Documents/UCI/Freshman/2018 Winter/EECS 31L/Labs/Lab 2 - Vending Machine/vivado.log
+Vivado journal file location: 	C:/Users/Richard/Documents/UCI/Freshman/2018 Winter/EECS 31L/Labs/Lab 2 - Vending Machine/vivado.jou
+Engine tmp dir: 	C:/Users/Richard/Documents/UCI/Freshman/2018 Winter/EECS 31L/Labs/Lab 2 - Vending Machine/.Xil/Vivado-19628-Richard
+
+GUI allocated memory:	172 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 541 MB
+
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bs (cj):  Open Project : addNotify
+// Opening Vivado Project: C:\Users\Richard\Documents\UCI\Freshman\2018 Winter\EECS 31L\Labs\Lab 2 - Vending Machine\Lab 2 - Vending Machine.xpr. Version: Vivado v2017.4 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project {C:/Users/Richard/Documents/UCI/Freshman/2018 Winter/EECS 31L/Labs/Lab 2 - Vending Machine/Lab 2 - Vending Machine.xpr} 
+// Tcl Message: INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. Current project path is 'C:/Users/Richard/Documents/UCI/Freshman/2018 Winter/EECS 31L/Labs/Lab 2 - Vending Machine' 
+// [GUI Memory]: 54 MB (+53834kb) [00:00:10]
+// [Engine Memory]: 473 MB (+344816kb) [00:00:10]
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project {C:/Users/Richard/Documents/UCI/Freshman/2018 Winter/EECS 31L/Labs/Lab 2 - Vending Machine/Lab 2 - Vending Machine.xpr} 
+// Tcl Message: INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. Current project path is 'C:/Users/Richard/Documents/UCI/Freshman/2018 Winter/EECS 31L/Labs/Lab 2 - Vending Machine' 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 64 MB (+8333kb) [00:00:12]
+// [Engine Memory]: 502 MB (+4949kb) [00:00:12]
+// [Engine Memory]: 541 MB (+15309kb) [00:00:13]
+// [GUI Memory]: 68 MB (+803kb) [00:00:13]
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2017.4/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 545 MB. GUI used memory: 39 MB. Current time: 1/30/18 3:06:36 PM PST
+// Project name: Lab 2 - Vending Machine; location: C:/Users/Richard/Documents/UCI/Freshman/2018 Winter/EECS 31L/Labs/Lab 2 - Vending Machine; part: xc7k70tfbv676-1
+// Tcl Message: open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:05 . Memory (MB): peak = 713.199 ; gain = 34.527 
+dismissDialog("Open Project"); // bs (cj)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Tcl Message: update_compile_order -fileset sources_1 
+// [Engine Memory]: 571 MB (+2369kb) [00:00:19]
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, lab2b_tb(behavior) (lab2b_tb.vhd)]", 1); // B (D, cj)
+// PAPropertyPanels.initPanels (lab2b.vhd) elapsed time: 0.2s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, lab2b_tb(behavior) (lab2b_tb.vhd), uut : Lab2b_FSM(Behavioral) (lab2b.vhd)]", 2, false); // B (D, cj)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, lab2b_tb(behavior) (lab2b_tb.vhd), uut : Lab2b_FSM(Behavioral) (lab2b.vhd)]", 2, false, false, false, false, false, true); // B (D, cj) - Double Click
+selectCodeEditor("lab2b.vhd", 626, 221); // cd (w, cj)
+selectCodeEditor("lab2b.vhd", 623, 246); // cd (w, cj)
+// Elapsed time: 311 seconds
+selectCodeEditor("lab2b.vhd", 290, 131); // cd (w, cj)
+selectCodeEditor("lab2b.vhd", 290, 132, false, false, false, false, true); // cd (w, cj) - Double Click
+selectCodeEditor("lab2b.vhd", 239, 124); // cd (w, cj)
+// [GUI Memory]: 73 MB (+1701kb) [00:05:41]
