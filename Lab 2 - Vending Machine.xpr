@@ -34,9 +34,13 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSANumComputeUnits" Val="60"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Option Name="WTXSimLaunchSim" Val="18"/>
 =======
     <Option Name="WTXSimLaunchSim" Val="74"/>
+>>>>>>> New-FSM-Test
+=======
+    <Option Name="WTXSimLaunchSim" Val="77"/>
 >>>>>>> New-FSM-Test
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
@@ -87,7 +91,6 @@
       <File Path="$PSRCDIR/sources_1/imports/New folder/lab2s_tb.vhd">
         <FileInfo RelPath="lab2s_tb.vhd">
           <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
@@ -95,7 +98,6 @@
       <File Path="$PSRCDIR/sources_1/imports/New folder/lab2s.vhd">
         <FileInfo RelPath="lab2s.vhd">
           <Attr Name="UserDisabled" Val="1"/>
-          <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

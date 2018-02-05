@@ -1,7 +1,10 @@
+<<<<<<< HEAD
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Richard/Documents/UCI/Freshman/2018 Winter/EECS 31L/Labs/Lab 2 - Vending Machine/Lab 2 - Vending Machine.srcs/sources_1/imports/New folder/lab2b.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity Lab2b_FSM
 <<<<<<< HEAD
 INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Richard/Documents/UCI/Freshman/2018 Winter/EECS 31L/Labs/Lab 2 - Vending Machine/Lab 2 - Vending Machine.srcs/sources_1/imports/New folder/lab2b_tb.vhd" into library xil_defaultlib
 INFO: [VRFC 10-307] analyzing entity lab2b_tb
+=======
+>>>>>>> New-FSM-Test
 =======
 >>>>>>> New-FSM-Test
