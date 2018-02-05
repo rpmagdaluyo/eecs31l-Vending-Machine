@@ -27,7 +27,7 @@ architecture Behavioral of Lab2b_FSM is
 -- Use CASE statements and IF/ELSE/ELSIF statements to describe your processes.
 -- add your code here
     type StateType is
-        (Start, FiveRCV, TenRCV, TwentyRCV, FiveTotal, TenTotal, FifteenTotal, TwentyTotal, Over20, Cancel);
+        (Start, FiveRCV, FiveTotal, TenRCV, TenTotal, FifteenRCV, FifteenTotal, TwentyTotal, OverTwentyTotal, Cancel);
     signal CurrState, NextState: StateType;
     
     begin
@@ -43,78 +43,114 @@ architecture Behavioral of Lab2b_FSM is
         -- on current state and input
         CombLogic: process(CurrState, Input)
         begin
-            CurrState <= Start;
             case CurrState is
-                when Start =>
+                when Start => 
                     Permit <= '0';
                     ReturnChange <= '0';
-                    if(Input = "000") then
-                        NextState <= Start;
-                    elsif(Input = "001") then
+                    if(Input = "001") then
                         NextState <= FiveRCV;
                     elsif(Input = "010") then
                         NextState <= TenRCV;
-                    elsif(Input <= "100") then
-                        NextState <= TwentyRCV;
-                    elsif(Input <= "111") then
-                        NextState <= Cancel;
-                    end if;
-                when FiveRCV =>
-                    Permit <= '0';
-                    ReturnChange <= '0';
-                    if(Input = "000") then
-                        NextState <= FiveTotal;
-                    elsif(Input = "001") then
-                        NextState <= TenRCV;
-                    elsif(Input = "010") then
-                        NextState <= FifteenTotal;
                     elsif(Input = "100") then
-                        NextState <= Over20;
-                    elsif(Input = "111") then
-                        NextState <= Cancel;
-                    end if;
-                when TenRCV =>
-                    Permit <= '0';
-                    ReturnChange <= '0';
-                    if(Input = "000") then
-                        NextState <= TenTotal;
-                    elsif(Input = "001") then
-                        NextState <= FifteenTotal;
-                    elsif(Input = "010") then
-                        NextState <= TwentyRCV;
-                    elsif(Input = "100") then
-                        NextState <= Over20;
-                    elsif(Input = "111") then
-                        NextState <= Cancel;
-                    end if;
-                when TwentyRCV =>
-                    Permit <= '0';
-                    ReturnChange <= '0';
-                    NextState <= TwentyTotal;                  
-                when FiveTotal =>
-                    if(Input = "111") then
-                        NextState <= Cancel;
-                    end if;
-               when TenTotal =>
-                    if(Input = "111") then
-                        NextState <= Cancel;
-                    end if;  
-               when FifteenTotal =>
-                    if(Input = "111") then
-                        NextState <= Cancel;
-                    end if;       
-                when TwentyTotal =>
-                    Permit <= '1';
-                    ReturnChange <= '0';
-                    NextState <= Start;         
-                when Over20 =>
-                    Permit <= '1';
-                    ReturnChange <= '1';
-                    NextState <= Start;
-                when Cancel =>
-                    Permit <= '0';
-                    ReturnChange <= '1';
-                    NextState <= Start;
+						NextState <= TwentyTotal;
+				    elsif(Input = "000") then
+				        NextState <= Start;
+					end if;
+					
+				-- FiveRCV and FiveTotal
+				when FiveRCV =>
+					Permit <= '0';
+					ReturnChange <= '0';
+					if(Input = "000") then
+						NextState <= FiveTotal;
+					else
+						NextState <= FiveRCV;
+					end if;
+				when FiveTotal =>
+					Permit <= '0';
+					ReturnChange <= '0';
+					if(Input = "000") then
+					   NextState <= FiveTotal;
+					elsif(Input = "001") then
+						NextState <= TenRCV;
+					elsif(Input <= "010") then
+						NextState <= FifteenRCV;
+					elsif(Input <= "100") then
+						NextState <= OverTwentyTotal;
+					elsif(Input <= "111") then
+						NextState <= Cancel;
+					elsif(Input <= "000") then
+						NextState <= FiveTotal;
+					end if;
+				
+				-- TenRCV and TenTotal
+				when TenRCV =>
+					Permit <= '0';
+					ReturnChange <= '0';
+					if(Input = "000") then
+						NextState <= TenTotal;
+					else
+						NextState <= TenRCV;
+					end if;
+				when TenTotal =>
+					Permit <= '0';
+					ReturnChange <= '0';
+					if(Input = "000") then
+						NextState <= TenTotal;
+					elsif(Input <= "001") then
+					   NextState <= FifteenRCV;
+					elsif(Input <= "010") then
+						NextState <= TwentyTotal;
+					elsif(Input <= "100") then
+						NextState <= OverTwentyTotal;
+					elsif(Input <= "111") then
+						NextState <= Cancel;
+					elsif(Input <= "000") then
+						NextState <= TenTotal;
+    				end if;
+				
+				-- FifteenRCV and FifteenTotal
+				when FifteenRCV =>
+					Permit <= '0';
+					ReturnChange <= '0';
+					if(Input = "000") then
+						NextState <= FifteenTotal;
+					else
+						NextState <= FifteenRCV;
+					end if;
+				when FifteenTotal =>
+					Permit <= '0';
+					ReturnChange <= '0';
+					if(Input = "000") then
+					   NextState <= FifteenTotal;
+					elsif(Input = "001") then
+						NextState <= TwentyTotal;
+					elsif(Input <= "010") then
+						NextState <= OverTwentyTotal;
+					elsif(Input <= "100") then
+						NextState <= OverTwentyTotal;
+					elsif(Input <= "111") then
+						NextState <= Cancel;
+					end if;
+					
+				-- TwentyTotal	
+				when TwentyTotal =>
+					Permit <= '1';
+					ReturnChange <= '0';
+					NextState <= Start;
+					
+				-- OverTwentyTotal	
+				when OverTwentyTotal =>
+					Permit <= '1';
+					ReturnChange <= '1';
+					NextState <= Start;
+					
+			    -- Cancel
+				when Cancel =>
+					Permit <= '0';
+					ReturnChange <= '1';
+					NextState <= Start;
+					
             end case;
         end process;
 END Behavioral;
