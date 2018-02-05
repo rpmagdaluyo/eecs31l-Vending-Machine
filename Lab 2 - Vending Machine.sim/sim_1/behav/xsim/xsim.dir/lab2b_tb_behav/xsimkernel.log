@@ -2,6 +2,9 @@ Running: xsim.dir/lab2b_tb_behav/xsimk.exe -simmode gui -wdb lab2b_tb_behav.wdb 
 Design successfully loaded
 Design Loading Memory Usage: 5424 KB (Peak: 5424 KB)
 Design Loading CPU Usage: 15 ms
+<<<<<<< HEAD
 Simulation completed
 Simulation Memory Usage: 6072 KB (Peak: 6072 KB)
 Simulation CPU Usage: 15 ms
+=======
+>>>>>>> New-FSM-Test

@@ -10,6 +10,7 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
+<<<<<<< HEAD
       <ZoomStartTime time="0fs"></ZoomStartTime>
       <ZoomEndTime time="454000001fs"></ZoomEndTime>
       <Cursor1Time time="1000000000fs"></Cursor1Time>
@@ -19,6 +20,17 @@
       <ValueColumnWidth column_width="84"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="7" />
+=======
+      <ZoomStartTime time="54850000fs"></ZoomStartTime>
+      <ZoomEndTime time="518850001fs"></ZoomEndTime>
+      <Cursor1Time time="254850000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="150"></NameColumnWidth>
+      <ValueColumnWidth column_width="88"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="5" />
+>>>>>>> New-FSM-Test
    <wvobject fp_name="/lab2b_tb/Input" type="array">
       <obj_property name="ElementShortName">Input[2:0]</obj_property>
       <obj_property name="ObjectShortName">Input[2:0]</obj_property>
@@ -42,6 +54,7 @@
       <obj_property name="ElementShortName">Clk_period</obj_property>
       <obj_property name="ObjectShortName">Clk_period</obj_property>
    </wvobject>
+<<<<<<< HEAD
    <wvobject fp_name="/lab2b_tb/uut/CurrState" type="other">
       <obj_property name="ElementShortName">CurrState</obj_property>
       <obj_property name="ObjectShortName">CurrState</obj_property>
@@ -50,4 +63,6 @@
       <obj_property name="ElementShortName">NextState</obj_property>
       <obj_property name="ObjectShortName">NextState</obj_property>
    </wvobject>
+=======
+>>>>>>> New-FSM-Test
 </wave_config>

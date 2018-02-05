@@ -91,72 +91,72 @@ BEGIN
         -- ignoring any setup/hold time issues for behavior --
 		-- TEST CASE 0 BEGIN (provided) --
 		
-		-- insert Ten (Ten total)
+		-- insert Ten ($10 Total)
 		Input <= "010";
 		Wait for 20 NS ;
 		
 	    Input <= "000";
 		Wait for 20 NS ;
 		
-		-- insert Five (Twenty total)
+		-- insert Five ($15 Total)
 	    Input <= "001";
 		Wait for 20 NS ;
 		
 	    Input <= "000";
 		Wait for 20 NS ;
 		
-		-- insert Five ($20 total, expecting P=1, R=0)
+		-- insert Five ($20 Total, expecting P=1, R=0)
 	    Input <= "001";
 		Wait for 10 NS ;
 		ASSERT Permit = '1' REPORT "p = 1 fail with test case 0" SEVERITY WARNING;
 		ASSERT ReturnChange = '0' REPORT "r = 0 fail with test case 0" SEVERITY WARNING;
 		Wait for 10 NS ;
 		
+		Input <= "000";
+		wait for 10ns;
+		
         -- more test cases here
         
-		-- insert Twenty 
+		-- insert Twenty ($20 Total, expecting P=1, R=0) 
 		Input <= "100";
 		wait for 10ns;
 		assert Permit = '1' report "p = 1 fail with test case 1" severity warning;
-		assert ReturnChange = '0' report "r = 0 fail with test case 1" severity warning;
-		wait for 10ns;
-		
+        assert ReturnChange = '0' report "r = 0 fail with test case 1" severity warning;		
+        wait for 10ns;
+        
+        Input <= "000";
+        wait for 20ns;
+
 		-- insert NoBill after getting the permit;
 		Input <= "000";
 		wait for 10ns;
-		assert Permit = '1' report "p = 1 fail with test case 2" severity warning;
+		assert Permit = '0' report "p = 0 fail with test case 2" severity warning;
         assert ReturnChange = '0' report "r = 0 fail with test case 2" severity warning;
         wait for 10ns;
 		
-		-- insert Five;
+		-- insert Five ($5 Total;
 		Input <= "001";
-		wait for 10ns;
-		assert Permit = '0' report "p = 0 fail with test case 3" severity warning;
-        assert ReturnChange = '0' report "r = 0 fail with test case 3" severity warning;
-        wait for 10ns;
+		wait for 20ns;
+        
+        Input <= "000";
+        wait for 20ns;
 		
 		-- insert Ten;
 		Input <= "010";
-		wait for 10ns;
-		assert Permit = '0' report "p = 0 fail with test case 4" severity warning;
-        assert ReturnChange = '0' report "r = 0 fail with test case 4" severity warning;
-        wait for 10ns;
+		wait for 20ns;
 		
-		-- insert Twenty;
+		Input <= "000";
+		wait for 20ns;
+		
+		-- insert Twenty ($25 Total, expecting P=1, R=1)
 		Input <= "100";
+		wait for 20ns;
+		
+		Input <= "000";
 		wait for 10ns;
-		assert Permit = '1' report "p = 1 fail with test case 5" severity warning;
-        assert ReturnChange = '1' report "r = 1 fail with test case 5" severity warning;
+		assert Permit = '1' report "p = 1 fail with test case 3" severity warning;
+        assert ReturnChange = '1' report "r = 1 fail with test case 3" severity warning;
         wait for 10ns;
-
-                
-        -- insert NoBill after getting the permit;
-        Input <= "000";
-        wait for 10ns;
-        assert Permit = '0' report "p = 0 fail with test case 6" severity warning;
-        assert ReturnChange = '0' report "r = 0 fail with test case 6" severity warning;
-        wait for 10ns;
-                
       wait;
    end process;
 
