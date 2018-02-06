@@ -79,8 +79,6 @@ architecture Behavioral of Lab2b_FSM is
 						NextState <= OverTwentyTotal;
 					elsif(Input <= "111") then
 						NextState <= Cancel;
-					elsif(Input <= "000") then
-						NextState <= FiveTotal;
 					end if;
 				
 				-- TenRCV and TenTotal
@@ -105,8 +103,6 @@ architecture Behavioral of Lab2b_FSM is
 						NextState <= OverTwentyTotal;
 					elsif(Input <= "111") then
 						NextState <= Cancel;
-					elsif(Input <= "000") then
-						NextState <= TenTotal;
     				end if;
 				
 				-- FifteenRCV and FifteenTotal

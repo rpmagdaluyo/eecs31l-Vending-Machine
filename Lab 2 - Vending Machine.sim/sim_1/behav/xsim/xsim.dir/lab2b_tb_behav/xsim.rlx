@@ -1,14 +1,6 @@
 
 { 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    crc :  1572262153202071926  , 
-=======
-    crc :  3984715869131020868  , 
->>>>>>> New-FSM-Test
-=======
-    crc :  2367079011971318072  , 
->>>>>>> New-FSM-Test
+    crc :  3375138367668151444  , 
     ccp_crc :  0  , 
     cmdline : " -wto 15d7f5748c9d402f9dca639e717be3af --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot lab2b_tb_behav xil_defaultlib.lab2b_tb" , 
     buildDate : "Dec 15 2017" , 
