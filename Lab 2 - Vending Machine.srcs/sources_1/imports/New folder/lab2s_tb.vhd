@@ -32,14 +32,14 @@ USE ieee.std_logic_1164.ALL;
 -- arithmetic functions with Signed or Unsigned values
 --USE ieee.numeric_std.ALL;
  
-ENTITY lab2b_tb IS
-END lab2b_tb;
+ENTITY lab2s_tb IS
+END lab2s_tb;
  
-ARCHITECTURE behavior OF lab2b_tb IS 
+ARCHITECTURE behavior OF lab2s_tb IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT Lab2b_FSM
+    COMPONENT Lab2s_FSM
     PORT(
          Input : IN  std_logic_vector(2 downto 0);
          Clk : IN  std_logic;
@@ -58,12 +58,12 @@ ARCHITECTURE behavior OF lab2b_tb IS
    signal ReturnChange : std_logic;
 
    -- Clock period definitions
-   constant Clk_period : time := 10 ns;
+   constant Clk_period : time := 21.2 ns;
  
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: Lab2b_FSM PORT MAP (
+   uut: Lab2s_FSM PORT MAP (
           Input => Input,
           Clk => Clk,
           Permit => Permit,
@@ -93,70 +93,70 @@ BEGIN
 		
 		-- insert Ten ($10 Total)
 		Input <= "010";
-		Wait for 20 NS ;
+		Wait for 21.2 NS ;
 		
 	    Input <= "000";
-		Wait for 20 NS ;
+		Wait for 21.2 NS ;
 		
 		-- insert Five ($15 Total)
 	    Input <= "001";
-		Wait for 20 NS ;
+		Wait for 21.2 NS ;
 		
 	    Input <= "000";
-		Wait for 20 NS ;
+		Wait for 21.2 NS ;
 		
 		-- insert Five ($20 Total, expecting P=1, R=0)
 	    Input <= "001";
-		Wait for 10 NS ;
+		Wait for 10.6 NS ;
 		ASSERT Permit = '1' REPORT "p = 1 fail with test case 0" SEVERITY WARNING;
 		ASSERT ReturnChange = '0' REPORT "r = 0 fail with test case 0" SEVERITY WARNING;
-		Wait for 10 NS ;
+		Wait for 10.6 NS ;
 		
 		Input <= "000";
-		wait for 10ns;
+		wait for 10.6ns;
 		
         -- more test cases here
         
 		-- insert Twenty ($20 Total, expecting P=1, R=0) 
 		Input <= "100";
-		wait for 10ns;
+		wait for 10.6ns;
 		assert Permit = '1' report "p = 1 fail with test case 1" severity warning;
         assert ReturnChange = '0' report "r = 0 fail with test case 1" severity warning;		
-        wait for 10ns;
+        wait for 10.6ns;
         
         Input <= "000";
-        wait for 20ns;
+        wait for 21.2ns;
 
 		-- insert NoBill after getting the permit;
 		Input <= "000";
-		wait for 10ns;
+		wait for 10.6ns;
 		assert Permit = '0' report "p = 0 fail with test case 2" severity warning;
         assert ReturnChange = '0' report "r = 0 fail with test case 2" severity warning;
-        wait for 10ns;
+        wait for 10.6ns;
 		
 		-- insert Five ($5 Total;
 		Input <= "001";
-		wait for 20ns;
+		wait for 21.2ns;
         
         Input <= "000";
-        wait for 20ns;
+        wait for 21.2ns;
 		
 		-- insert Ten;
 		Input <= "010";
-		wait for 20ns;
+		wait for 21.2ns;
 		
 		Input <= "000";
-		wait for 20ns;
+		wait for 21.2ns;
 		
 		-- insert Twenty ($25 Total, expecting P=1, R=1)
 		Input <= "100";
-		wait for 20ns;
+		wait for 21.2ns;
 		
 		Input <= "000";
-		wait for 10ns;
+		wait for 10.6ns;
 		assert Permit = '1' report "p = 1 fail with test case 3" severity warning;
         assert ReturnChange = '1' report "r = 1 fail with test case 3" severity warning;
-        wait for 10ns;
+        wait for 10.6ns;
       wait;
    end process;
 

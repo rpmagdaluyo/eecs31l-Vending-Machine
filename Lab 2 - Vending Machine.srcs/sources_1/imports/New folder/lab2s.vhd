@@ -25,26 +25,86 @@ ARCHITECTURE Structural OF Lab2s_FSM IS
 -- For the state register process, use IF statements.
 -- Figure out the appropriate sensitivity list of both the processes.
 -- add your codehere
-    SUBTYPE Statetype IS std_logic_vector(1 DOWNTO 0);
-    CONSTANT S_Off : Statetype := "00";
-    SIGNAL CurrState, NextState: Statetype;
-    
+    subtype StateType is std_logic_vector(3 DOWNTO 0);
+    signal CurrState, NextState: StateType := "0000";
+begin
     -- CombLogic updates status
     CombLogic: process(CurrState, Input)
     begin
-        Permit <= ((CurrState(2) and not(CurrState(1)) and not(CurrState(0)));  
-        ReturnChange <= ((CurrState(3) and CurrState(2) and not(CurrState(1))));
-        NextState(3) <= 
-        NextState(2) <= 
-        NextState(1) <= 
-        NextState(0) <=         
+        Permit <= CurrState(2) and not(CurrState(1)) and not(CurrState(0)) after 5.6ns;
+        ReturnChange <= CurrState(3) and CurrState(2) and not(CurrState(1)) after 5.6ns;
+		NextState(3) <= (not(CurrState(3)) and not(CurrState(2)) and CurrState(1) and (CurrState(0)) and Input(2) and not(Input(1)) and not(Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and CurrState(0) and Input(2) and Input(1) and Input(0))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and not (CurrState(0)) and Input(2) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and not (CurrState(0)) and Input(2) and Input(1) and Input(0))
+					or	(not (CurrState(3)) and CurrState(2) and not (CurrState(1)) and CurrState(0) and Input(2) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and not (CurrState(1)) and CurrState(0) and Input(2) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and not (CurrState(1)) and CurrState(0) and Input(2) and Input(1) and Input(0))
+					after 5.6ns;
+		NextState(2) <= (not (CurrState(3)) and not (CurrState(2)) and not (CurrState(1)) and not (CurrState(0)) and Input(2) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and CurrState(0) and not (Input(2)) and Input(1) and not (Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and CurrState(0) and Input(2) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and CurrState(0) and Input(2) and Input(1) and Input(0))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and not (CurrState(0)) and not (Input(2)) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and not (CurrState(0)) and not (Input(2)) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and not (CurrState(0)) and not (Input(2)) and not (Input(1)) and Input(0))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and not (CurrState(0)) and not (Input(2)) and Input(1) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and not (CurrState(0)) and Input(2) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and not (CurrState(0)) and Input(2) and Input(1) and Input(0))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and CurrState(0) and not (Input(2)) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and CurrState(0) and not (Input(2)) and not (Input(1)) and Input(0))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and CurrState(0) and not (Input(2)) and Input(1) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and CurrState(0) and Input(2) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and CurrState(0) and Input(2) and Input(1) and Input(0))
+					or	(not (CurrState(3)) and CurrState(2) and not (CurrState(1)) and CurrState(0) and not (Input(2)) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and not (CurrState(1)) and CurrState(0) and not (Input(2)) and not (Input(1)) and Input(0))
+					or	(not (CurrState(3)) and CurrState(2) and not (CurrState(1)) and CurrState(0) and not (Input(2)) and Input(1) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and not (CurrState(1)) and CurrState(0) and Input(2) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and not (CurrState(1)) and CurrState(0) and Input(2) and Input(1) and Input(0))
+					after 5.6ns;
+		NextState(1) <= (not (CurrState(3)) and not (CurrState(2)) and not (CurrState(1)) and not (CurrState(0)) and not (Input(2)) and Input(1) and not (Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and not (CurrState(1)) and CurrState(0) and not (Input(2)) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and CurrState(0) and not (Input(2)) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and CurrState(0) and not (Input(2)) and not (Input(1)) and Input(0))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and CurrState(0) and not (Input(2)) and Input(1) and not (Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and not (CurrState(0)) and not (Input(2)) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and not (CurrState(0)) and not (Input(2)) and not (Input(1)) and Input(0))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and not (CurrState(0)) and not (Input(2)) and Input(1) and not (Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and not (CurrState(0)) and Input(2) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and not (CurrState(0)) and Input(2) and Input(1) and Input(0))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and not (CurrState(0)) and not (Input(2)) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and not (CurrState(0)) and not (Input(2)) and not (Input(1)) and Input(0))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and CurrState(0) and not (Input(2)) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and CurrState(0) and not (Input(2)) and Input(1) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and CurrState(0) and Input(2) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and CurrState(0) and Input(2) and Input(1) and Input(0))
+					after 5.6ns;
+		NextState(0) <= (not (CurrState(3)) and not (CurrState(2)) and not (CurrState(1)) and not (CurrState(0)) and not (Input(2)) and not (Input(1)) and Input(0))
+					or	(not (CurrState(3)) and not (CurrState(2)) and not (CurrState(1)) and CurrState(0) and not (Input(2)) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and not (CurrState(1)) and CurrState(0) and not (Input(2)) and not (Input(1)) and Input(0))
+					or	(not (CurrState(3)) and not (CurrState(2)) and not (CurrState(1)) and CurrState(0) and not (Input(2)) and Input(1) and not (Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and not (CurrState(1)) and CurrState(0) and Input(2) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and not (CurrState(1)) and CurrState(0) and Input(2) and Input(1) and Input(0))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and CurrState(0) and not (Input(2)) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and CurrState(0) and not (Input(2)) and Input(1) and not (Input(0)))
+					or	(not (CurrState(3)) and not (CurrState(2)) and CurrState(1) and CurrState(0) and Input(2) and Input(1) and Input(0))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and not (CurrState(0)) and not (Input(2)) and not (Input(1)) and Input(0))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and not (CurrState(0)) and Input(2) and Input(1) and Input(0))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and CurrState(0) and not (Input(2)) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and CurrState(0) and not (Input(2)) and not (Input(1)) and Input(0))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and CurrState(0) and not (Input(2)) and Input(1) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and CurrState(0) and Input(2) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and CurrState(1) and CurrState(0) and Input(2) and Input(1) and Input(0))
+					or	(not (CurrState(3)) and CurrState(2) and not (CurrState(1)) and CurrState(0) and not (Input(2)) and not (Input(1)) and not (Input(0)))
+					or	(not (CurrState(3)) and CurrState(2) and not (CurrState(1)) and CurrState(0) and Input(2) and Input(1) and Input(0))
+					after 5.6ns;
     end process CombLogic;
     
     -- StateReg is the clock
     StateReg: process(Clk)
     begin
         if(Clk = '1' and Clk'event) then
-            CurrState <= NextState after 5.6ns;
+            CurrState <= NextState after 4ns;
         end if;
     end process StateReg;    
 END Structural;
